@@ -22,7 +22,7 @@ const orm = {
         });
     },
     updateOne: function (table, objToUpdate, condition, cb) {
-        let queryString = "UPDATE " + table + " SET ? WHERE ? ,[" + objToUpdate + condition + "]";
+        let queryString = "UPDATE " + table + " SET ? WHERE ? ,[" + objToUpdate +","+ condition + "]";
         connection.query(queryString, function (error, result) {
             if (error) throw error;
             cb(result);
