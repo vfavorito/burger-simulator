@@ -15,8 +15,8 @@ const orm = {
         });
     },
     insertOne: function (table, columns, values, cb) {
-        let queryString = "INSERT INTO " + table + "(" + columns + ") VALUES(" + getQuestionMarks(values) + ")";
-        connection.query(queryString, function (error, result) {
+        let queryString = "INSERT INTO " + table + "(" + columns.toString() + ") VALUES (" + getQuestionMarks(values) + ") ";
+        connection.query(queryString, values, function (error, result) {
             if (error) throw error;
             cb(result);
         });
