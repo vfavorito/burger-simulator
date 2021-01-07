@@ -6,6 +6,20 @@ const getQuestionMarks = (values) => {
     return qMarkArray.toString();
 };
 
+const objToSql = (obj) => {
+    let arr = [];
+    for (let key in obj) {
+        let value = obj[key];
+        if (Object.hasOwnProperty.call(obj, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            };
+            arr.push(key + "=" + value);
+        };
+    };
+    return arr.toString();
+}
+
 const orm = {
     selectAll: function (table, cb) {
         let queryString = "SELECT * FROM " + table;
@@ -22,7 +36,7 @@ const orm = {
         });
     },
     updateOne: function (table, objToUpdate, condition, cb) {
-        let queryString = "UPDATE " + table + " SET ? WHERE ? ,[" + objToUpdate +","+ condition + "]";
+        let queryString = "UPDATE " + table + " SET " + objToSql(objToUpdate) + " WHERE " + condition;
         connection.query(queryString, function (error, result) {
             if (error) throw error;
             cb(result);

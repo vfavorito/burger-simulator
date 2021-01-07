@@ -1,7 +1,7 @@
 $(function () {
-    $(".change-devoured").on("click", function (event) {
+    $(".devour").on("click", function (event) {
         let id = $(this).data("id");
-        let newDevoured = $(this).data("newDevoured");
+        let newDevoured = 1;
 
         let newDevouredState = {
             devoured: newDevoured
@@ -10,7 +10,9 @@ $(function () {
             type: "PUT",
             data: newDevouredState
         }).then(
+            function(){
             location.reload()
+            }
         );
     });
     $(".create-form").on("submit", function (event) {
@@ -24,7 +26,9 @@ $(function () {
             type: "POST",
             data: newBurger
         }).then(
+            function(){
             location.reload()
+            }
         );
     });
 });
