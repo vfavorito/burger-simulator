@@ -2,7 +2,7 @@ const connection = require("../config/connection.js");
 
 const getQuestionMarks = (values) => {
     qMarkArray = [];
-    values.forEach( value => qMarkArray.push("?"));
+    values.forEach(value => qMarkArray.push("?"));
     return qMarkArray.toString();
 };
 
@@ -16,12 +16,18 @@ const orm = {
     },
     insertOne: function (table, columns, values, cb) {
         let queryString = "INSERT INTO " + table + "(" + columns + ") VALUES(" + getQuestionMarks(values) + ")";
-            connection.query(queryString, function (error, result) {
-                if (error) throw error;
-                cb(result);
-            });
-},
-
+        connection.query(queryString, function (error, result) {
+            if (error) throw error;
+            cb(result);
+        });
+    },
+    updateOne: function (table, objToUpdate, condition, cb) {
+        let queryString = "UPDATE " + table + " SET ? WHERE ? ,[" + objToUpdate + condition + "]";
+        connection.query(queryString, function (error, result) {
+            if (error) throw error;
+            cb(result);
+        });
+    }
 };
 
 module.exports = orm;
