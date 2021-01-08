@@ -1,0 +1,28 @@
+.header{
+    text-align:center;
+}
+#addBurger{
+    margin-top:30px;
+    text-align:center;
+}
+#burger-pic{
+    width:75%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 50px;
+}
+body{
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,200,0,1) 50%, rgba(204,97,21,1) 100%);
+}
+.burger-list{
+    background-image:url("https://freepngimg.com/thumb/paper%20sheet/2-paper-sheet-png-image.png");
+    background-size: cover;
+    padding:32px;
+}
+.list-title{
+    text-decoration: underline;
+    margin-bottom:25px;
+    margin-top:15px;
+}

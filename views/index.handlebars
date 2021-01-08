@@ -1,13 +1,12 @@
 <div class="row">
   <div class="col-md-12 header">
-    <h1>Burgers</h1>
+    <h1>Burger Simulator</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    <div id="list-block-one">
-      <h2 id="burgers-to-devour-title">Burgers in need of devouring</h2>
-
+    <div class="burger-list">
+      <h2 class="list-title">Burgers 2 Devour</h2>
       <ul>
         {{#each burgers}}
         {{#unless devoured}}
@@ -15,14 +14,13 @@
         {{/unless}}
         {{/each}}
       </ul>
-
     </div>
   </div>
   <div class="col-md-4">
+    <img id="burger-pic" src="https://freepngimg.com/thumb/burger%20sandwich/72-hamburger-burger-png-image-mac-burger.png">
     <div id="addBurger">
       <h2>Add A Burger</h2>
       <form class="create-form">
-
         <div class="form-group">
           <label for="burger_name">Burger Name:</label>
           <input type="text" id="burger_name" name="name">
@@ -32,9 +30,8 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div id="list-block-two">
-      <h2 id="burgers-devoured-title">Burgers in need of nothing</h2>
-
+    <div class="burger-list">
+      <h2 class="list-title">Devoured Burgers</h2>
       <ul>
         {{#each burgers}}
         {{#if devoured}}
