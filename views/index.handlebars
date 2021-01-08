@@ -1,38 +1,47 @@
-<h1>Burgers</h1>
-
-<div id="list-block-one">
-  <h2 id="burgers-to-devour-title">Burgers in need of devouring</h2>
-
-  <ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-block devoured=0}}
-    {{/unless}}
-    {{/each}}
-  </ul>
-
+<div class="row">
+  <div class="col-md-12 header">
+    <h1>Burgers</h1>
+  </div>
 </div>
+<div class="row">
+  <div class="col-md-4">
+    <div id="list-block-one">
+      <h2 id="burgers-to-devour-title">Burgers in need of devouring</h2>
 
-<div id="addBurger">
-  <h2>Add A Burger</h2>
-  <form class="create-form">
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=0}}
+        {{/unless}}
+        {{/each}}
+      </ul>
 
-    <div class="form-group">
-      <label for="burger_name">Burger Name:</label>
-      <input type="text" id="burger_name" name="name">
     </div>
-    <button type="submit">Add that Burger!</button>
-  </form>
-</div>
+  </div>
+  <div class="col-md-4">
+    <div id="addBurger">
+      <h2>Add A Burger</h2>
+      <form class="create-form">
 
-<div id="list-block-two">
-  <h2 id="burgers-devoured-title">Burgers in need of nothing</h2>
+        <div class="form-group">
+          <label for="burger_name">Burger Name:</label>
+          <input type="text" id="burger_name" name="name">
+        </div>
+        <button type="submit">Add that Burger!</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div id="list-block-two">
+      <h2 id="burgers-devoured-title">Burgers in need of nothing</h2>
 
-  <ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    {{> burgers/burger-block devoured=1}}
-    {{/if}}
-    {{/each}}
-  </ul>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=1}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
 </div>
