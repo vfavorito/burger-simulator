@@ -1,5 +1,11 @@
-.header{
+#header{
+    margin-top:10px;
     text-align:center;
+}
+#header-title{
+    padding:4px;
+    border-style: double;
+    display:inline;
 }
 #addBurger{
     margin-top:30px;
