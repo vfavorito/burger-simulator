@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 let connection;
 
+// setting up connection to run through jawsDB if running live app or local mysql if running code on local machine
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 }

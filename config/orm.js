@@ -1,11 +1,13 @@
 const connection = require("../config/connection.js");
 
+// Used to add the correct amount of question marks to the insertOne orm method mysql query
 const getQuestionMarks = (values) => {
     qMarkArray = [];
     values.forEach(value => qMarkArray.push("?"));
     return qMarkArray.toString();
 };
 
+// Used to take in an object and convert it into a style that can be used for mysql query in the updateOne orm method
 const objToSql = (obj) => {
     let arr = [];
     for (let key in obj) {
@@ -19,7 +21,7 @@ const objToSql = (obj) => {
     };
     return arr.toString();
 }
-
+// variable containing method templates for querying database.  Will be called by models.
 const orm = {
     selectAll: function (table, cb) {
         let queryString = "SELECT * FROM " + table;
